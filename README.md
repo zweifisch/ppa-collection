@@ -91,6 +91,14 @@
 		sudo apt-get install riak
 	}
 
+### tmux
+
+	tmux(){
+		sudo add-apt-repository ppa:pi-rho/dev
+		sudo apt-get update
+		sudo apt-get install tmux
+	}
+
 ## main
 
 	if [[ $# = 0 ]]; then
