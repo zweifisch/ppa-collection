@@ -99,6 +99,22 @@
 		sudo apt-get install tmux
 	}
 
+### rust
+
+	rust(){
+		sudo add-apt-repository ppa:hansjorg/rust
+		sudo apt-get update
+		sudo apt-get install rust-nightly
+	}
+
+### php
+
+	php(){
+		sudo add-apt-repository ppa:ondrej/php5
+		sudo apt-get update
+		sudo apt-get install php5
+	}
+
 ## main
 
 	if [[ $# = 0 ]]; then
