@@ -49,6 +49,14 @@
         sudo apt-get install neo4j
     }
 
+### nginx
+
+    nginx(){
+        sudo apt-add-repository ppa:nginx/stable
+        sudo apt-get update
+        sudo apt-get install nginx
+    }
+
 ### nodejs
 
     nodejs(){
