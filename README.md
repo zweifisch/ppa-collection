@@ -103,8 +103,8 @@
 ### elasticsearch
 
     elasticsearch(){
-        wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add -
-        sudo sh -c 'echo "deb http://packages.elasticsearch.org/elasticsearch/1.1/debian stable main" > /etc/apt/sources.list.d/elasticsearch.list'
+        wget -qO - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add -
+        sudo sh -c 'echo "deb http://packages.elasticsearch.org/elasticsearch/1.3/debian stable main" > /etc/apt/sources.list.d/elasticsearch.list'
         sudo apt-get update
         sudo apt-get install elasticsearch
     }
