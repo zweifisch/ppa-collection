@@ -1,15 +1,10 @@
 #!/bin/bash
 
-## usage
+## install
 
-    usage(){
-        echo "usage:"
-        echo
-        echo "    $0 <package>"
-        echo 
-        echo "packages:"
-        echo 
-        sed -n 's/^###/   /p' $0
+    install(){
+        sudo sh -c 'curl https://raw.githubusercontent.com/zweifisch/ppa-collection/master/README.md > /usr/bin/ppa-collection' \
+            && sudo chmod +x /usr/bin/ppa-collection
     }
 
 ## packages
@@ -66,7 +61,7 @@
     }
 
 ### rabbitmq
-    
+
     rabbitmq(){
         sudo sh -c 'echo "deb http://www.rabbitmq.com/debian/ testing main" > /etc/apt/sources.list.d/rabbitmq.list'
         wget -O - http://www.rabbitmq.com/rabbitmq-signing-key-public.asc | sudo apt-key add -
@@ -131,6 +126,32 @@
         sudo add-apt-repository ppa:ondrej/php5
         sudo apt-get update
         sudo apt-get install php5
+    }
+
+### zeal
+
+    zeal(){
+        sudo add-apt-repository ppa:jerzy-kozera/zeal-ppa
+        sudo apt-get update
+        sudo apt-get install zeal
+    }
+
+## update
+
+    update(){
+        sudo sh -c 'curl https://raw.githubusercontent.com/zweifisch/ppa-collection/master/README.md > /usr/bin/ppa-collection'
+    }
+
+## usage
+
+    usage(){
+        echo "usage:"
+        echo
+        echo "    $0 <package>"
+        echo 
+        echo "packages:"
+        echo 
+        sed -n 's/^###/   /p' $0
     }
 
 ## main
