@@ -148,10 +148,15 @@
         echo "usage:"
         echo
         echo "    $0 <package>"
-        echo 
+        echo
         echo "packages:"
-        echo 
+        echo
         sed -n 's/^###/   /p' $0
+        echo
+        echo "update:"
+        echo
+        echo "    $0 update"
+        echo
     }
 
 ## main
