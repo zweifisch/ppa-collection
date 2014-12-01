@@ -9,13 +9,20 @@
 
 ## packages
 
+### elixir
+
+    elixir(){
+        wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb -O /tmp/erlang-solutions.deb && sudo dpkg -i /tmp/erlang-solutions.deb
+        sudo apt-get update
+        sudo apt-get install elixir
+    }
+
 ### erlang
 
     erlang(){
-        sudo sh -c 'echo "deb http://binaries.erlang-solutions.com/debian $(lsb_release -sc) contrib" > /etc/apt/sources.list.d/erlang.list'
-        wget -O - http://binaries.erlang-solutions.com/debian/erlang_solutions.asc | sudo apt-key add -
+        wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb -O /tmp/erlang-solutions.deb && sudo dpkg -i /tmp/erlang-solutions.deb
         sudo apt-get update
-        sudo apt-get install esl-erlang
+        sudo apt-get install erlang
     }
 
 ### java
@@ -115,9 +122,7 @@
 ### rust
 
     rust(){
-        sudo add-apt-repository ppa:hansjorg/rust
-        sudo apt-get update
-        sudo apt-get install rust-nightly
+        curl -s https://static.rust-lang.org/rustup.sh | sudo sh
     }
 
 ### php
