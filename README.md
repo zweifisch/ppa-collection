@@ -17,6 +17,14 @@
         sudo apt-get install elixir
     }
 
+### emacs
+
+    emacs(){
+        sudo add-apt-repository ppa:fryda.tomas/emacs
+        sudo apt-get update
+        sudo apt-get install emacs24
+    }
+
 ### erlang
 
     erlang(){
@@ -46,7 +54,7 @@
 
     neo4j(){
         sudo sh -c 'echo "deb http://debian.neo4j.org/repo stable/" > /etc/apt/sources.list.d/neo4j.list'
-        wget -O - http://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add - 
+        wget -O - http://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
         sudo apt-get update
         sudo apt-get install neo4j
     }
@@ -79,7 +87,7 @@
 ### redis
 
     redis(){
-        sudo apt-add-repository ppa:chris-lea/redis-server 
+       sudo apt-add-repository ppa:chris-lea/redis-server
         sudo apt-get update
         sudo apt-get install redis-server
     }
@@ -117,6 +125,14 @@
         sudo add-apt-repository ppa:pi-rho/dev
         sudo apt-get update
         sudo apt-get install tmux
+    }
+
+### racket
+
+    racket(){
+        sudo add-apt-repository ppa:plt/racket
+        sudo apt-get update
+        sudo apt-get install racket
     }
 
 ### rust
