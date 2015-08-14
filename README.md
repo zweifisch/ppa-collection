@@ -46,6 +46,14 @@
         sudo apt-get install erlang
     }
 
+### fish
+
+    fish() {
+        sudo apt-add-repository ppa:fish-shell/release-2
+        sudo apt-get update
+        sudo apt-get install fish
+    }
+
 ### java
 
     java(){
@@ -86,6 +94,16 @@
         sudo apt-add-repository ppa:chris-lea/node.js
         sudo apt-get update
         sudo apt-get install nodejs
+    }
+
+### postgresql
+
+    postgresql(){
+        wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
+            sudo apt-key add -
+        sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" >> /etc/apt/sources.list.d/postgresql.list'
+        sudo apt-get update
+        sudo apt-get install postgresql
     }
 
 ### rabbitmq
