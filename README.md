@@ -9,6 +9,15 @@
 
 ## packages
 
+### crystal
+
+    crystal(){
+        curl http://dist.crystal-lang.org/apt/setup.sh | sudo bash
+        sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 09617FD37CC06B54
+        echo "deb http://dist.crystal-lang.org/apt crystal main" | sudo tee /etc/apt/sources.list.d/crystal.list
+    }
+
+
 ### docker
 
     docker(){
