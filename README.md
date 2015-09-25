@@ -15,6 +15,7 @@
         curl http://dist.crystal-lang.org/apt/setup.sh | sudo bash
         sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 09617FD37CC06B54
         echo "deb http://dist.crystal-lang.org/apt crystal main" | sudo tee /etc/apt/sources.list.d/crystal.list
+        sudo apt-get install crystal
     }
 
 
@@ -69,6 +70,14 @@
         sudo add-apt-repository ppa:webupd8team/java
         sudo apt-get update
         sudo apt-get install oracle-java7-installer
+    }
+
+### kivy
+
+    kivy(){
+        sudo add-apt-repository ppa:kivy-team/kivy
+        sudo apt-get update
+        sudo apt-get install kivy
     }
 
 ### mongodb
