@@ -3,8 +3,9 @@
 ## install
 
     install(){
-        sudo sh -c 'curl https://raw.githubusercontent.com/zweifisch/ppa-collection/master/README.md > /usr/bin/ppa-collection' \
-            && sudo chmod +x /usr/bin/ppa-collection
+        curl https://raw.githubusercontent.com/zweifisch/ppa-collection/master/README.md \
+            | sudo tee /usr/bin/ppa-collection
+        sudo chmod +x /usr/bin/ppa-collection
     }
 
 ## packages
@@ -14,7 +15,8 @@
     crystal(){
         curl http://dist.crystal-lang.org/apt/setup.sh | sudo bash
         sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 09617FD37CC06B54
-        echo "deb http://dist.crystal-lang.org/apt crystal main" | sudo tee /etc/apt/sources.list.d/crystal.list
+        echo deb http://dist.crystal-lang.org/apt crystal main \
+            | sudo tee /etc/apt/sources.list.d/crystal.list
         sudo apt-get install crystal
     }
 
@@ -26,8 +28,10 @@
             sudo apt-get update
             sudo apt-get install apt-transport-https
         }
-        sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
-        sudo sh -c "echo deb https://get.docker.com/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
+        sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \
+            --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+        echo deb https://get.docker.com/ubuntu docker main \
+            | sudo tee /etc/apt/sources.list.d/docker.list
         sudo apt-get update
         sudo apt-get install lxc-docker
     }
@@ -35,7 +39,8 @@
 ### elixir
 
     elixir(){
-        wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb -O /tmp/erlang-solutions.deb && sudo dpkg -i /tmp/erlang-solutions.deb
+        wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb \
+            -O /tmp/erlang-solutions.deb && sudo dpkg -i /tmp/erlang-solutions.deb
         sudo apt-get update
         sudo apt-get install elixir
     }
@@ -51,7 +56,8 @@
 ### erlang
 
     erlang(){
-        wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb -O /tmp/erlang-solutions.deb && sudo dpkg -i /tmp/erlang-solutions.deb
+        wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb \
+            -O /tmp/erlang-solutions.deb && sudo dpkg -i /tmp/erlang-solutions.deb
         sudo apt-get update
         sudo apt-get install erlang
     }
@@ -83,7 +89,8 @@
 ### mongodb
 
     mongodb(){
-        sudo sh -c 'echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" > /etc/apt/sources.list.d/mongo.list'
+        echo deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen \
+            | sudo tee /etc/apt/sources.list.d/mongo.list
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
         sudo apt-get update
         sudo apt-get install mongodb-10gen
@@ -92,7 +99,8 @@
 ### neo4j
 
     neo4j(){
-        sudo sh -c 'echo "deb http://debian.neo4j.org/repo stable/" > /etc/apt/sources.list.d/neo4j.list'
+        echo deb http://debian.neo4j.org/repo stable \
+            | sudo tee /etc/apt/sources.list.d/neo4j.list
         wget -O - http://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
         sudo apt-get update
         sudo apt-get install neo4j
@@ -114,12 +122,21 @@
         sudo apt-get install nodejs
     }
 
+### ocaml
+
+    ocaml(){
+        sudo add-apt-repository ppa:avsm/ppa
+        sudo apt-get update
+        sudo apt-get install ocaml ocaml-native-compilers camlp4-extra opam
+    }
+
 ### postgresql
 
     postgresql(){
-        wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
-            sudo apt-key add -
-        sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" >> /etc/apt/sources.list.d/postgresql.list'
+        wget -qO - https://www.postgresql.org/media/keys/ACCC4CF8.asc \
+            | sudo apt-key add -
+        echo deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main \
+            | sudo tee /etc/apt/sources.list.d/postgresql.list
         sudo apt-get update
         sudo apt-get install postgresql
     }
@@ -127,8 +144,10 @@
 ### rabbitmq
 
     rabbitmq(){
-        sudo sh -c 'echo "deb http://www.rabbitmq.com/debian/ testing main" > /etc/apt/sources.list.d/rabbitmq.list'
-        wget -O - http://www.rabbitmq.com/rabbitmq-signing-key-public.asc | sudo apt-key add -
+        echo deb http://www.rabbitmq.com/debian/ testing main \
+            | sudo tee /etc/apt/sources.list.d/rabbitmq.list
+        wget -O - http://www.rabbitmq.com/rabbitmq-signing-key-public.asc \
+            | sudo apt-key add -
         sudo apt-get update
         sudo apt-get install rabbitmq-server
     }
@@ -136,7 +155,7 @@
 ### redis
 
     redis(){
-       sudo apt-add-repository ppa:chris-lea/redis-server
+        sudo apt-add-repository ppa:chris-lea/redis-server
         sudo apt-get update
         sudo apt-get install redis-server
     }
@@ -152,8 +171,8 @@
 ### riak
 
     riak(){
-        # sudo sh -c 'echo "deb http://apt.basho.com $(lsb_release -sc) main" > /etc/apt/sources.list.d/basho.list'
-        sudo sh -c 'echo "deb http://apt.basho.com precise main" > /etc/apt/sources.list.d/basho.list'
+        echo deb http://apt.basho.com precise main \
+            | sudo tee  /etc/apt/sources.list.d/basho.list
         wget -O - http://apt.basho.com/gpg/basho.apt.key | sudo apt-key add -
         sudo apt-get update
         sudo apt-get install riak
@@ -163,7 +182,8 @@
 
     elasticsearch(){
         wget -qO - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add -
-        sudo sh -c 'echo "deb http://packages.elasticsearch.org/elasticsearch/1.3/debian stable main" > /etc/apt/sources.list.d/elasticsearch.list'
+        echo deb http://packages.elasticsearch.org/elasticsearch/1.3/debian stable main \
+            | sudo tee /etc/apt/sources.list.d/elasticsearch.list
         sudo apt-get update
         sudo apt-get install elasticsearch
     }
@@ -194,7 +214,8 @@
 
     syncthing(){
         curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
-        echo "deb http://apt.syncthing.net/ syncthing release" | sudo tee /etc/apt/sources.list.d/syncthing-release.list
+        echo deb http://apt.syncthing.net/ syncthing release \
+            | sudo tee /etc/apt/sources.list.d/syncthing-release.list
         sudo apt-get update
         sudo apt-get install syncthing
     }
@@ -218,7 +239,8 @@
 ## update
 
     update(){
-        sudo sh -c 'curl https://raw.githubusercontent.com/zweifisch/ppa-collection/master/README.md > /usr/bin/ppa-collection'
+        curl https://raw.githubusercontent.com/zweifisch/ppa-collection/master/README.md \
+            | sudo tee /usr/bin/ppa-collection
     }
 
 ## usage
@@ -246,3 +268,4 @@
         $1
     fi
 
+# vim: set ft=shell:
