@@ -62,6 +62,18 @@
         sudo apt-get install erlang
     }
 
+### firefox
+
+    firefox(){
+        sudo add-apt-repository ppa:ubuntu-mozilla-daily/firefox-aurora
+        sudo apt-get update
+        sudo apt-get install firefox
+    }
+
+    remove-firefox() {
+        sudo apt-add-repository --remove ppa:ubuntu-mozilla-daily/firefox-aurora
+    }
+
 ### fish
 
     fish() {
