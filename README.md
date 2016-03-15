@@ -150,6 +150,22 @@
         sudo apt-get install ocaml ocaml-native-compilers camlp4-extra opam
     }
 
+### phantomjs
+
+    phantomjs(){
+        sudo add-apt-repository ppa:tanguy-patte/phantomjs
+        sudo apt-get update
+        sudo apt-get install phantomjs
+    }
+
+### php
+
+    php(){
+        sudo add-apt-repository ppa:ondrej/php5
+        sudo apt-get update
+        sudo apt-get install php5
+    }
+
 ### postgresql
 
     postgresql(){
@@ -247,14 +263,6 @@
             | sudo tee /etc/apt/sources.list.d/syncthing-release.list
         sudo apt-get update
         sudo apt-get install syncthing
-    }
-
-### php
-
-    php(){
-        sudo add-apt-repository ppa:ondrej/php5
-        sudo apt-get update
-        sudo apt-get install php5
     }
 
 ### zeal
