@@ -107,6 +107,14 @@
         sudo apt-get install git
     }
 
+### go
+
+    go() {
+        sudo add-apt-repository ppa:gophers/archive
+        sudo apt-get update
+        sudo apt-get install golang
+    }
+
 ### java
 
     java(){
@@ -141,6 +149,14 @@
         wget -O - http://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
         sudo apt-get update
         sudo apt-get install neo4j
+    }
+
+### neovim
+
+    neovim(){
+        sudo apt-add-repository ppa:neovim-ppa/unstable
+        sudo apt-get update
+        sudo apt-get install neovim
     }
 
 ### nginx
