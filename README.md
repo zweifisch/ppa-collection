@@ -56,9 +56,9 @@
 ### emacs
 
     emacs(){
-        sudo add-apt-repository ppa:fryda.tomas/emacs
-        sudo apt-get update
-        sudo apt-get install emacs24
+        sudo apt-add-repository -y ppa:adrozdoff/emacs
+        sudo apt update
+        sudo apt install emacs25
     }
 
 ### erlang
